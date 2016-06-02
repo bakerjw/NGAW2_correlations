@@ -5,4 +5,5 @@ mixedEffectsResids.mat
 allIMsResids.mat
 rhoPredAll.mat
 rhoVsRupData.mat
+rhoDataAll.mat
 compare rho models/rhoAllModelPreds.mat
