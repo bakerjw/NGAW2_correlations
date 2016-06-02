@@ -1,0 +1,7 @@
+Figures/*
+ExtraAnalysis/*
+mixedEffectsResids.mat
+allIMsResids.mat
+rhoPredAll.mat
+rhoVsRupData.mat
+compare rho models/rhoAllModelPreds.mat
