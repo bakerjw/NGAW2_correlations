@@ -38,5 +38,11 @@ fprintf('Max absolute changes in data and model matrices: \n')
 save rhoDataAll rhoData rhoDataPD rhoPredAll rhoPredPD
 
 
+%% write CSV files of outputs
+csvwrite('eSupplement/rhoData.csv',rhoData)
+csvwrite('eSupplement/rhoDataPD.csv',rhoDataPD)
+csvwrite('eSupplement/rhoPredicted.csv',rhoPredAll)
+csvwrite('eSupplement/rhoPredictedPD.csv',rhoPredPD)
+
 
 
