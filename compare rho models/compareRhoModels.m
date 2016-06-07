@@ -24,7 +24,7 @@ end
 %% plots for a conditioning T2
 
 tStar = [ 0.1 0.3 1 3]; % periods to plot
-legendtext{1} = 'NGA West 2 data'; % legend data
+legendtext{1} = 'NGA-West2 data'; % legend data
 legendtext{2} = 'Al Atik (2011)';
 legendtext{3} = 'Akkar et al. (2014)';
 legendtext{4} = 'Baker and Jayaram (2008)';
@@ -36,7 +36,7 @@ figure
 for i=1:length(tStar)
     tIdx = find(Periods == tStar(i));
     
-    subplot(2,2,i)
+    figure
     h1 = semilogx(Periods, rhoData(tIdx, :), '-b', 'linewidth', 2);
     hold on
     plot(Periods, rho_AlAtik(tIdx, :));
@@ -60,9 +60,13 @@ for i=1:length(tStar)
         set(gca,'yticklabel', [])
     end
    
-    if i==2
+    if i==1
         legend(legendtext, 'location', 'southwest');
     end
+    FormatFigure
+    print('-dpdf', ['../Figures/saCorrCompare' num2str(i) '.pdf']); % save the figure to a file
+
+
 
 end
 

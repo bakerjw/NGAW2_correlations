@@ -1,25 +1,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% This file sets the defaults for the figures
-% 6-6-05
-% CBH of Stanford University, haselton@stanford.edu
-% modified by Jack Baker, most recently 12/10/13
+% Reformat figures for better display
+% last modified by Jack Baker, October 6, 2015
 %
-% This assumes that the figure is open and you have 
-%
+% This assumes that the figure is open 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% target font sizes
+label_size = 16;
+axis_size = 14;
 
 % use fixed figure size
 set(gcf, 'PaperUnits', 'inches');
-set(gcf, 'PaperSize', [3.25 3.25]);
+set(gcf, 'PaperSize', [6 4.5]);
 set(gcf, 'PaperPositionMode', 'manual');
 set(gcf, 'PaperUnits', 'inches');
-set(gcf, 'PaperPosition', [0 0 3.25 3.25]);
+set(gcf, 'PaperPosition', [0 0 6 4.5]);
 
-
-% Alter the plot
-label_size = 10;
-axis_size = 10;
 
 % axis labels
 set(gca, 'FontSize', axis_size);
@@ -45,9 +41,6 @@ if ~isempty(titleH)
         set(titleH, 'FontSize', label_size);
     end
 end
-
-
-
 
 
 

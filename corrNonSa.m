@@ -57,12 +57,13 @@ h4 = semilogx(Periods, rhoPredAll(imIdx(2), SaIDX), '--r');
 plot([0.01 10], [0 0], '-k')
 
 set(gca, 'ylim', [-0.5 0.5])
-hx = xlabel('Period (s)');
+set(gca, 'ytick', [-0.5:0.1:0.5])
+set(gca,'xticklabel', [0.01 0.1 1 10])
+hx = xlabel('T (s)');
 hy = ylabel('\rho');
 legend(IMLabel{imIdx(1)}, 'Bradley (2011a)', IMLabel{imIdx(2)}, 'Bradley (2011a)', 'location', 'northwest');
 FormatFigure
 print('-dpdf', ['Figures/dur_correlations.pdf']); % save the figure to a file
-print('-dpng', ['Figures/dur_correlations.png']); % save the figure to a file
 
 
 
@@ -77,12 +78,12 @@ h4 = semilogx(Periods, rhoPredAll(imIdx(2), SaIDX), '--r');
 plot([0.01 10], [0 0], '-k')
 
 set(gca, 'ylim', [-0 1])
-hx = xlabel('Period (s)');
+set(gca,'xticklabel', [0.01 0.1 1 10])
+hx = xlabel('T (s)');
 hy = ylabel('\rho');
 legend(IMLabel{imIdx(1)}, 'Bradley (2011b)', IMLabel{imIdx(2)}, 'Bradley (2012)', 'location', 'southwest');
 FormatFigure
 print('-dpdf', ['Figures/pga_correlations.pdf']); % save the figure to a file
-print('-dpng', ['Figures/pga_correlations.png']); % save the figure to a file
 
 
 

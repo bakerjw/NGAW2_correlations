@@ -54,17 +54,19 @@ plot(Periods, exp(condMean{i,j} + 2*condSigma{i,j}), '--k', 'linewidth', 2)
 plot(Periods, exp(condMean{i,j} - 2*condSigma{i,j}), '--k', 'linewidth', 2)
 
 j = 2; % BSSA GMPE
-h2 = loglog(Periods, exp(condMean{i,j}), '-b', 'linewidth', 2);
-plot(Periods, exp(condMean{i,j} + 2*condSigma{i,j}), '--b', 'linewidth', 2)
-plot(Periods, exp(condMean{i,j} - 2*condSigma{i,j}), '--b', 'linewidth', 2)
-legend([h1 h2], 'Chiou and Youngs, data corr', 'BSSA, data corr')
-title('Two GMPEs')
-xlabel('Period (s)')
+h2 = loglog(Periods, exp(condMean{i,j}), '-.b', 'linewidth', 2);
+plot(Periods, exp(condMean{i,j} + 2*condSigma{i,j}), '-.b', 'linewidth', 2)
+plot(Periods, exp(condMean{i,j} - 2*condSigma{i,j}), '-.b', 'linewidth', 2)
+set(gca,'xticklabel', [0.01 0.1 1 10])
+%legend([h1 h2], 'CY GMM, data r', 'BSSA GMM, data r')
+legend([h1 h2], 'Chiou and Youngs (2014) GMM, NGA-West2 r', 'Boore et al. (2014) GMM, NGA-West2 r', 'location', 'southwest')
+xlabel('T (s)')
 ylabel('Spectral acceleration (g)')
 FormatFigure
+print('-dpdf', ['Figures/csTwoGMM.pdf']); % save the figure to a file
 
 
-i = 1; % model rho
+i = 2; % data rho
 j = 1; % CY GMPE
 
 figure
@@ -73,31 +75,37 @@ hold on
 plot(Periods, exp(condMean{i,j} + 2*condSigma{i,j}), '--k', 'linewidth', 2)
 plot(Periods, exp(condMean{i,j} - 2*condSigma{i,j}), '--k', 'linewidth', 2)
 
-i = 2; % data rho
-h2 = loglog(Periods, exp(condMean{i,j}), '-b', 'linewidth', 2);
-plot(Periods, exp(condMean{i,j} + 2*condSigma{i,j}), '--b', 'linewidth', 2)
-plot(Periods, exp(condMean{i,j} - 2*condSigma{i,j}), '--b', 'linewidth', 2)
-legend([h1 h2], 'Chiou and Youngs, BJ corr', 'Chiou and Youngs, data corr')
-title('Two Rho models')
-xlabel('Period (s)')
+i = 1; % model rho
+h2 = loglog(Periods, exp(condMean{i,j}), '-.b', 'linewidth', 2);
+plot(Periods, exp(condMean{i,j} + 2*condSigma{i,j}), '-.b', 'linewidth', 2)
+plot(Periods, exp(condMean{i,j} - 2*condSigma{i,j}), '-.b', 'linewidth', 2)
+%legend([h1 h2], 'CY GMM, BJ r', 'CY GMM, data r', 'location', 'southwest')
+set(gca,'xticklabel', [0.01 0.1 1 10])
+legend([h1 h2], 'Chiou and Youngs (2014) GMM, NGA-West2 r', 'Chiou and Youngs (2014) GMM, Baker and Jayaram (2008) r', 'location', 'southwest')
+xlabel('T (s)')
 ylabel('Spectral acceleration (g)')
 FormatFigure
+print('-dpdf', ['Figures/csTwoRho.pdf']); % save the figure to a file
 
 % report numerical differences
 T1 = 10; % second period of interest (s)
 t1Idx = find(Periods == T1);
 
 rhoVals = [rhoModel(t1Idx) rhoData(t1Idx)]
-rhoDiff = rhoModel(t1Idx) - rhoData(t1Idx)
+rhoDiff = rhoModel(t1Idx) - rhoData(t1Idx);
 
 cmsVals = [ exp(condMean{1,1}(t1Idx)) exp(condMean{1,2}(t1Idx)) ; ...
             exp(condMean{2,1}(t1Idx)) exp(condMean{2,2}(t1Idx))]
         
-cmsDiffGMPE = exp(condMean{2,1}(t1Idx)) / exp(condMean{2,2}(t1Idx)) % CY vs BSSA for data rho
-cmsDiffRho = exp(condMean{1,1}(t1Idx)) / exp(condMean{1,2}(t1Idx)) % model vs data rho for CY
+condSigmaVals = [ (condSigma{1,1}(t1Idx)) (condSigma{1,2}(t1Idx)) ; ...
+                  (condSigma{2,1}(t1Idx)) (condSigma{2,2}(t1Idx))]
+        
+        
+cmsDiffGMPE = exp(condMean{2,2}(t1Idx)) / exp(condMean{2,1}(t1Idx)) % CY vs BSSA for data rho
+cmsDiffRho = exp(condMean{1,1}(t1Idx)) / exp(condMean{2,1}(t1Idx)) % model vs data rho for CY
 
-sigmaDiffGMPE = condSigma{2,1}(t1Idx) / condSigma{2,2}(t1Idx) % CY vs BSSA for data rho
-sigmaDiffRho = condSigma{1,1}(t1Idx) / condSigma{1,2}(t1Idx) % model vs data rho for CY
+sigmaDiffGMPE = condSigma{2,2}(t1Idx) / condSigma{2,1}(t1Idx) % CY vs BSSA for data rho
+sigmaDiffRho = condSigma{1,1}(t1Idx) / condSigma{2,1}(t1Idx) % model vs data rho for CY
 
 
 

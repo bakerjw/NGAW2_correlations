@@ -1,6 +1,9 @@
 function [ output_args ] = fn_windowed_IM_corr( imIDX, tVals, Periods, rhoDataAll, rhoPrediction, paramVals, xLabelText, IMLabel )
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
+% Helper function to create a plot of IM correlations, versus some rupture
+% or site parameter that is being varied
+%
+% Jack Baker
+% June 2, 2016
 
 
 
