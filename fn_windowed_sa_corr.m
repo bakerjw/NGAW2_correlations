@@ -1,6 +1,9 @@
 function [ output_args ] = fn_windowed_sa_corr( tPairs, Periods, rhoDataAll, rhoPrediction, paramVals, xLabelText )
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
+% Helper function to create a plot of Sa correlations, versus some rupture
+% or site parameter that is being varied
+%
+% Jack Baker
+% June 2, 2016
 
 nT = length(tPairs);
 for i=1:nT

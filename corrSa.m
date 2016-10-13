@@ -42,10 +42,10 @@ for i=1:length(tStar)
     text(tStar(i)*.75, 1.05, ['T2=' num2str(tStar(i)) 's'], 'Fontsize', 12);
 end
 axis([0.01 10 0 1])
-legh = legend([h1(1) h2(1) h3(1)], 'Sa_{RotD50} correlation', 'Sa_{RotD100} correlation', 'Baker Jayaram (2008)', 'location', 'southwest');
+set(gca,'xticklabel', [0.01 0.1 1 10])
+legend([h1(1) h2(1) h3(1)], 'Sa_{RotD50}, NGA-West2 data', 'Sa_{RotD100}, NGA-West2 data', 'Baker and Jayaram (2008)', 'location', 'southwest');
 FormatFigure
-print('-dpdf', ['Figures/sa_correlations.pdf']); % save the figure to a file
-print('-dpng', ['Figures/sa_correlations.png']); % save the figure to a file
+print('-dpdf', ['Figures/rotD100Correlations.pdf']); % save the figure to a file
 
 %% compare at a given conditioning period, including within and between event correlations
 

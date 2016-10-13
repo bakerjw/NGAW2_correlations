@@ -125,9 +125,18 @@ idxTemp = find(NGA_num <= 8163 & allowableFilter & chiouYoungsUsed);
 idx = idxTemp(eqIdx);
 numUsableRecsDur = length(idx);
 
+% get mechanism codes for AS16
+MechAS16 = zeros(size(mechanism));
+MechAS16(mechanism==-999) = 0; % unknown
+MechAS16(mechanism==1) = 1; % Normal
+MechAS16(mechanism==2) = 2; % Reverse
+MechAS16(mechanism==0) = 3; % Strike-slip
+
+
 for i = 1:2 % two duration definitions
     for k = 1:length(idx)
-        [med_Dur(k,1), sigmaDur(k,1), tauDur(k,1), phiDur(k,1) ] = BSA09_dur( i, magnitude(idx(k)), closest_D(idx(k)), soil_Vs30(idx(k)), Z_tor(idx(k)) );
+        %[med_DurBSA09(k,1), sigmaDur(k,1), tauDur(k,1), phiDur(k,1) ] = BSA09_dur(i, magnitude(idx(k)), closest_D(idx(k)), soil_Vs30(idx(k)), Z_tor(idx(k)) );
+        [med_Dur(k,1), sigmaDur(k,1), tauDur(k,1), phiDur(k,1) ] = AS16_dur( i, magnitude(idx(k)), closest_D(idx(k)), soil_Vs30(idx(k)), MechAS16(idx(k)), Z1_CVMH(idx(k)), Region_BSSA(idx(k)) );
     end
     
     % build data structure
