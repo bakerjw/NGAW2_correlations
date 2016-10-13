@@ -1,7 +1,7 @@
 # NGA-West2 IM correlations
 This data and set of Matlab scripts reproduces the results presented in 
 
-Baker, J. W., and Bradley, B. A. (2016). “Intensity measure correlations observed in the NGA-West2 database, and dependence of correlations on rupture and site parameters.” Earthquake Spectra, (in review).
+Baker, J. W., and Bradley, B. A. (2016). “Intensity measure correlations observed in the NGA-West2 database, and dependence of correlations on rupture and site parameters.” Earthquake Spectra, (in press).
 
 The script mainScript.m calls the other scripts in the folder, and so is a good starting place when aiming to understand the code in this repository.
 
