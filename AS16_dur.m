@@ -7,7 +7,8 @@ function [ median, sigma, tau, phi ] = AS16_dur( Def, M, R, Vs30, Mech, Z1, CJ )
 %
 % Afshari, K., and Stewart, J. P. (2016). "Physically Parameterized
 % Prediction Equations for Significant Duration in Active Crustal Regions."
-% Earthquake Spectra. (in press)
+% Earthquake Spectra, Vol. 32, No. 4, pp. 2057-2081.  
+% doi: http://dx.doi.org/10.1193/063015EQS106M 
 %
 % INPUTS
 %
