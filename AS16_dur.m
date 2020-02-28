@@ -2,6 +2,7 @@ function [ median, sigma, tau, phi ] = AS16_dur( Def, M, R, Vs30, Mech, Z1, CJ )
 %
 % Created by Jack Baker, August 9, 2016
 % Based on code from Kioumars Afshari
+% Updated 12/8/2017 to correct errors in AS16 equations 11 and 12
 %
 % Duration prediction from the following model
 %
@@ -39,9 +40,11 @@ end
 
 % estimate median basin depth from Vs30
 if CJ==0 % California (eq 11)
-    mu_z1=exp(-7.15/4*log((Vs30^4+570.94^4)/(1360^4+570.94^4))-log(1000));
+    %mu_z1=exp(-7.15/4*log((Vs30^4+570.94^4)/(1360^4+570.94^4))-log(1000));
+    mu_z1=exp(-7.15/4*log((Vs30^4+570.94^4)/(1360^4+570.94^4)));
 else % other regions (eq 12)
-    mu_z1=exp(-5.23/4*log((Vs30^2+412.39^2)/(1360^2+412.39^2))-log(1000));
+    %mu_z1=exp(-5.23/4*log((Vs30^2+412.39^2)/(1360^2+412.39^2))-log(1000));
+    mu_z1=exp(-5.23/4*log((Vs30^2+412.39^2)/(1360^2+412.39^2)));
 end
 
 % differential basin depth (eq 10)
