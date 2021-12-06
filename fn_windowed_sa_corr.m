@@ -12,7 +12,7 @@ for i=1:nT
     end
 end
 
-% plot versus soil_Vs30
+% plot versus some rupture parameter
 for i=1:length(rhoDataAll)
     for k = 1:nT
         rhoData{k}(i) = rhoDataAll{i}(imIDX(k,1),imIDX(k,2));

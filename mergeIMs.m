@@ -84,7 +84,7 @@ FormatFigure
 
 % event terms vs magnitude
 figure
-plot(eventMagLong, residBetweenLong(:,95), '.b')
+plot(eventMagLong, residBetweenLong(:,imIdx), '.b')
 hold on
 plot([3 8], [0 0], '-k')
 xlabel('Magnitude')
