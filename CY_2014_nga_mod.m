@@ -27,7 +27,7 @@
 %               = 5 for Turkey
 % Z10            = Basin depth (km); depth from the groundsurface to the
 %                   1km/s shear-wave horizon.
-%               = 999 if unknown
+%               = -999 if unknown
 %               = 'na' if unknow
 % Vs30          = shear wave velocity averaged over top 30 m in m/s
 %               = ref: 1130
@@ -215,7 +215,7 @@ else
    z_1= exp(-5.23/2*log((Vs30^2+412.39^2)/(1360^2+412.39^2)));
 end
 
-if Z10 ==999
+if Z10 == -999
     d_Z1 = 0;
 else
     d_Z1=Z10*1000-z_1;

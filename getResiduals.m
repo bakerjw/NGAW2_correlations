@@ -1,11 +1,15 @@
 % Compute within- and between-event residuals
 % Jack Baker
 % Last updated 2 June 2016
+% Updated 6 December 2021 to utilize corrected Z1_CVMH values
 
 clear
 
 %% load raw data
 load NGA_W2_corr_meta_data % needed data from the NGA-West2 flatfile
+load Z1_Z25_updated % load corrected values of the Z1 variables
+Z1_CVMH(Z1_CVMH>0) = Z1_CVMH(Z1_CVMH>0)/1000; % the flatfile values are in units of m, the GMM below expects units of km (leave the -999 values unchanged)
+
 load durObs % 5-75% (column 1) and 5-95% (column 2) durations for the first 8163 ground motions in the database
 
 
