@@ -5,8 +5,9 @@ data/processed/*.mat
 results/figures/*.pdf
 results/supplement/*.csv
 
-# Documentation (auto-generated)
+# Claude files
 CLAUDE.md
+.claude/
 
 # MATLAB temporary files
 *.asv
