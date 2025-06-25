@@ -4,15 +4,19 @@ This MATLAB codebase analyzes intensity measure correlations from the NGA-West2 
 
 **Baker, J. W., and Bradley, B. A. (2017). "Intensity measure correlations observed in the NGA-West2 database, and dependence of correlations on rupture and site parameters." *Earthquake Spectra*, 33(1), 145–156.**
 
+<<<<<<< HEAD
 ## Quick Start
+=======
+The data were updated in December 2021 to correct errors in the Z1 and region values associated with the ground motion database, and the code now produces figures that are slightly updated relative to the originally published results. Thank you to Eduardo Miranda and Alan Poulos for identifying the errors and helping resolve them.
+>>>>>>> b0a2c3c81e085576252448d429a96ba882f02252
 
-**Run Analysis**: Execute the main analysis pipeline:
+1. **Run Analysis**: Execute the main analysis pipeline:
    ```matlab
    mainScript
    ```
    ⚠️ **Note**: The `getResiduals.m` script is computationally intensive and may take significant time to run.
 
-3. **View Results**: Generated figures are saved in `results/figures/` as PDF files.
+2. **View Results**: Generated figures are saved in `results/figures/` as PDF files.
 
 ## Project Structure
 
