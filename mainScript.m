@@ -13,8 +13,11 @@
 % Last modified June 2, 2016
 % Modified December 6, 2021 to update citation information
 
-
 clear; close all; clc;
+
+% Run setup to configure paths
+setup
+
 
 %% evaluate GMPE to compute spectral residuals
 getResiduals % mixed effects residuals calculation (this is slow)
@@ -22,11 +25,6 @@ mergeIMs % merge in non-Sa residuals
 
 %% evaluate correlation predictive models
 corrPredictions
-
-%% compare models
-cd('compare rho models')
-compareRhoModels
-cd ..
 
 %% spectral acceleration correlations
 corrSa 
@@ -36,6 +34,9 @@ corrNonSa
 
 %% modify data to enforce positive definiteness
 makePosDef
+
+%% compare models
+compareRhoModels
 
 %% M/R/Vs30 dependence
 corrVsRup

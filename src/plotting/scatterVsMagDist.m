@@ -6,7 +6,7 @@
 clear; close all; clc
 
 % load data
-load allIMsResids
+load('data/processed/allIMsResids')
 
 % screen records 
 maxDistance = 150; % maximum distance to consider

@@ -7,9 +7,9 @@ clear; close all; clc;
 
 
 % load data
-load allIMsResids
-load mixedEffectsResids resid_RotD100Within resid_RotD100BetweenLong
-load rhoPredAll % correlation predictions
+load('data/processed/allIMsResids')
+load('data/processed/mixedEffectsResids', 'resid_RotD100Within', 'resid_RotD100BetweenLong')
+load('data/processed/rhoPredAll') % correlation predictions
 
 SaIDX = 1:105; %indices of Sa IMs
 
@@ -45,7 +45,7 @@ axis([0.01 10 0 1])
 set(gca,'xticklabel', [0.01 0.1 1 10])
 legend([h1(1) h2(1) h3(1)], 'Sa_{RotD50}, NGA-West2 data', 'Sa_{RotD100}, NGA-West2 data', 'Baker and Jayaram (2008)', 'location', 'southwest');
 FormatFigure
-print('-dpdf', ['Figures/rotD100Correlations.pdf']); % save the figure to a file
+print('-dpdf', ['results/figures/rotD100Correlations.pdf']); % save the figure to a file
 
 %% compare at a given conditioning period, including within and between event correlations
 

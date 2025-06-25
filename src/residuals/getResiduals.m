@@ -6,11 +6,11 @@
 clear
 
 %% load raw data
-load NGA_W2_corr_meta_data % needed data from the NGA-West2 flatfile
-load Z1_Z25_updated % load corrected values of the Z1 variables
+load('data/raw/NGA_W2_corr_meta_data') % needed data from the NGA-West2 flatfile
+load('data/raw/Z1_Z25_updated') % load corrected values of the Z1 variables
 Z1_CVMH(Z1_CVMH>0) = Z1_CVMH(Z1_CVMH>0)/1000; % the flatfile values are in units of m, the GMM below expects units of km (leave the -999 values unchanged)
 
-load durObs % 5-75% (column 1) and 5-95% (column 2) durations for the first 8163 ground motions in the database
+load('data/raw/durObs') % 5-75% (column 1) and 5-95% (column 2) durations for the first 8163 ground motions in the database
 
 
 %% initialize matrices
@@ -243,7 +243,7 @@ end
 
 %% save data
 
-save('mixedEffectsResids.mat', 'resid_RotD50Within',  'resid_RotD100Within',  ...
+save('data/processed/mixedEffectsResids.mat', 'resid_RotD50Within',  'resid_RotD100Within',  ...
                                'resid_RotD50BetweenLong', 'resid_RotD100BetweenLong', ...
                                'resid_OtherWithin', 'residOtherBetweenLong', ...
                                'resid_BetweenNumRecs', 'residOtherBetweenNumRecs', ...

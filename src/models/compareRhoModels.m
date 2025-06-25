@@ -4,8 +4,8 @@
 
 clear; close all; clc;
 
-load ../rhoDataAll rhoData % load NGA-W2 observations
-load ../allIMsResids Periods SaIDX
+load('data/processed/rhoDataAll', 'rhoData') % load NGA-W2 observations
+load('data/processed/allIMsResids', 'Periods', 'SaIDX')
 rhoData = rhoData(SaIDX, SaIDX); % keep only spectral correlations
 
 %% compute targets
@@ -64,7 +64,7 @@ for i=1:length(tStar)
         legend(legendtext, 'location', 'southwest');
     end
     FormatFigure
-    print('-dpdf', ['../Figures/saCorrCompare' num2str(i) '.pdf']); % save the figure to a file
+    print('-dpdf', ['results/figures/saCorrCompare' num2str(i) '.pdf']); % save the figure to a file
 
 
 

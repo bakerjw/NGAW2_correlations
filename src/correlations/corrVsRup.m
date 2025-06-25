@@ -7,8 +7,8 @@
 clear
 
 % load data
-load allIMsResids
-load rhoDataAll rhoPredAll % predicted correlations
+load('data/processed/allIMsResids')
+load('data/processed/rhoDataAll', 'rhoPredAll') % predicted correlations
 
 
 %% make a simple plot of correlations from two magnitude ranges
@@ -42,7 +42,7 @@ hx = xlabel('T1 (s)');
 hy = ylabel('\rho');
 legend([h1(1) h2(1) h3(1)], ['M > ' num2str(mHi) ' NGA-West2 data'], ['M < ' num2str(mLow) ' NGA-West2 data'], 'Baker and Jayaram (2008)', 'location', 'southwest');
 FormatFigure
-print('-dpdf', ['Figures/sa_correlations_hiLowM.pdf']); % save the figure to a file
+print('-dpdf', ['results/figures/sa_correlations_hiLowM.pdf']); % save the figure to a file
 
 
 
@@ -78,7 +78,7 @@ for i = 1:length(dists)
     notAllowed = find(Rjb < dists(i)-dDist | Rjb > dists(i)+dDist | magnitude < minMag);
     rhoDist{i} = fnGetRho(notAllowed, notAllowedEvent, sigma, tau, phi, residWithin, residBetweenLong );
 end
-save rhoVsRupData vs30s rhoVs30 mags rhoMag dists rhoDist
+save('data/processed/rhoVsRupData', 'vs30s', 'rhoVs30', 'mags', 'rhoMag', 'dists', 'rhoDist')
     
 
 
@@ -90,16 +90,16 @@ tPairs =      [ 0.3     0.5; ...
          
 xLabelText = 'Vs30 (m/s)';
 fn_windowed_sa_corr( tPairs, Periods, rhoVs30, rhoPredAll, vs30s, xLabelText )
-print('-dpdf', ['Figures/sa_correlations_vsVs30.pdf']); % save the figure to a file
+print('-dpdf', ['results/figures/sa_correlations_vsVs30.pdf']); % save the figure to a file
 
 
 xLabelText = 'Magnitude';
 fn_windowed_sa_corr( tPairs, Periods, rhoMag, rhoPredAll, mags, xLabelText )
-print('-dpdf', ['Figures/sa_correlations_vsMag.pdf']); % save the figure to a file
+print('-dpdf', ['results/figures/sa_correlations_vsMag.pdf']); % save the figure to a file
 
 xLabelText = 'Distance (km)';
 fn_windowed_sa_corr( tPairs, Periods, rhoDist, rhoPredAll, dists, xLabelText )
-print('-dpdf', ['Figures/sa_correlations_vsDist.pdf']); % save the figure to a file
+print('-dpdf', ['results/figures/sa_correlations_vsDist.pdf']); % save the figure to a file
 
 
 
@@ -109,16 +109,16 @@ tVals =      [ 0.02; 0.1; 1; 5]; % Sa periods to condition against
 
 xLabelText = 'Vs30 (m/s)';
 fn_windowed_IM_corr( imIDX, tVals, Periods, rhoVs30, rhoPredAll, vs30s, xLabelText, IMLabel)
-print('-dpdf', ['Figures/dur_correlations_vsVs30.pdf']); % save the figure to a file
+print('-dpdf', ['results/figures/dur_correlations_vsVs30.pdf']); % save the figure to a file
 
 xLabelText = 'Magnitude';
 fn_windowed_IM_corr( imIDX, tVals, Periods, rhoMag, rhoPredAll, mags, xLabelText , IMLabel)
 set(gca, 'xlim', [5.5 7.5])
-print('-dpdf', ['Figures/dur_correlations_vsMag.pdf']); % save the figure to a file
+print('-dpdf', ['results/figures/dur_correlations_vsMag.pdf']); % save the figure to a file
 
 xLabelText = 'Distance (km)';
 fn_windowed_IM_corr( imIDX, tVals, Periods, rhoDist, rhoPredAll, dists, xLabelText, IMLabel )
-print('-dpdf', ['Figures/dur_correlations_vsDist.pdf']); % save the figure to a file
+print('-dpdf', ['results/figures/dur_correlations_vsDist.pdf']); % save the figure to a file
 
 
 

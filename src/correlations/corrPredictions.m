@@ -5,7 +5,7 @@
 
 clear; close all; clc;
 
-load allIMsResids Periods SaIDX nonSaIDX
+load('data/processed/allIMsResids', 'Periods', 'SaIDX', 'nonSaIDX')
 
 rhoPredAll = zeros(109,109);
 
@@ -110,4 +110,4 @@ rho22 = [1      0.83	0.733	0.928	0.599	-0.442	-0.405	0.7     0.395; ...
 consideredIDX = [6 7 1 3]; % these are the only IMs used in this work    
 rhoPredAll(nonSaIDX,nonSaIDX) = rho22(consideredIDX,consideredIDX);
 
-save rhoPredAll rhoPredAll
+save('data/processed/rhoPredAll', 'rhoPredAll')

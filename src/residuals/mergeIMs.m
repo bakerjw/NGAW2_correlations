@@ -10,7 +10,7 @@
 % IMLabel{109} = 'PGV';
 
 clear
-load mixedEffectsResids
+load('data/processed/mixedEffectsResids')
 
 numIMs = 109;
 numRecs = length(magnitude);
@@ -63,7 +63,7 @@ sigma = sqrt(tau.^2 + phi.^2);
 
 
 %% save everything
-save allIMsResids residWithin residBetweenLong  residTotal sigma phi tau eventMagLong IMLabel Periods magnitude soil_Vs30 eqid Rjb SaIDX nonSaIDX
+save('data/processed/allIMsResids', 'residWithin', 'residBetweenLong', 'residTotal', 'sigma', 'phi', 'tau', 'eventMagLong', 'IMLabel', 'Periods', 'magnitude', 'soil_Vs30', 'eqid', 'Rjb', 'SaIDX', 'nonSaIDX')
 
 %% some extra plots
 

@@ -6,8 +6,8 @@
 clear
 
 % load data
-load allIMsResids
-load rhoPredAll % correlation predictions
+load('data/processed/allIMsResids')
+load('data/processed/rhoPredAll') % correlation predictions
 
 numPeriods = length(Periods);
 numIMs = length(tau);
@@ -63,7 +63,7 @@ hx = xlabel('T (s)');
 hy = ylabel('\rho');
 legend(IMLabel{imIdx(1)}, 'Bradley (2011a)', IMLabel{imIdx(2)}, 'Bradley (2011a)', 'location', 'northwest');
 FormatFigure
-print('-dpdf', ['Figures/dur_correlations.pdf']); % save the figure to a file
+print('-dpdf', ['results/figures/dur_correlations.pdf']); % save the figure to a file
 
 
 
@@ -83,7 +83,7 @@ hx = xlabel('T (s)');
 hy = ylabel('\rho');
 legend(IMLabel{imIdx(1)}, 'Bradley (2011b)', IMLabel{imIdx(2)}, 'Bradley (2012)', 'location', 'southwest');
 FormatFigure
-print('-dpdf', ['Figures/pga_correlations.pdf']); % save the figure to a file
+print('-dpdf', ['results/figures/pga_correlations.pdf']); % save the figure to a file
 
 
 

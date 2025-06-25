@@ -1,9 +1,28 @@
-Figures/*
-ExtraAnalysis/*
-eSupplement/*
-mixedEffectsResids.mat
-allIMsResids.mat
-rhoPredAll.mat
-rhoVsRupData.mat
-rhoDataAll.mat
-compare rho models/rhoAllModelPreds.mat
+# Generated data files (processed)
+data/processed/*.mat
+
+# Generated figures and outputs
+results/figures/*.pdf
+results/supplement/*.csv
+
+# Documentation (auto-generated)
+CLAUDE.md
+
+# MATLAB temporary files
+*.asv
+*.m~
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backup files
+*~
+*.bak
+*.orig

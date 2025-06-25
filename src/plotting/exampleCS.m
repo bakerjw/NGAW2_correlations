@@ -7,7 +7,7 @@ function [ ] = exampleCS()
 
 
 clear
-load allIMsResids 
+load('data/processed/allIMsResids') 
 
 %% specify an analysis scenario
 M = 7.5; Dist_jb = 20; Vs30 = 500; Fault_Type = 1; z1 = -999; region = 0; % SS fault and z1, global model 
@@ -20,7 +20,7 @@ saStar = 0.75; % target Sa at conditioning period
 
 %% load means and covariances
 % get correlations  
-load rhoDataAll rhoData
+load('data/processed/rhoDataAll', 'rhoData')
 rhoData = rhoData(tIdx,1:105); % Sa correlations for just the conditioning period
 rhoModel = BJ08_corrNew(tStar, Periods); % model correlations
 
@@ -63,7 +63,7 @@ legend([h1 h2], 'Chiou and Youngs (2014) GMM, NGA-West2 r', 'Boore et al. (2014)
 xlabel('T (s)')
 ylabel('Spectral acceleration (g)')
 FormatFigure
-print('-dpdf', ['Figures/csTwoGMM.pdf']); % save the figure to a file
+print('-dpdf', ['results/figures/csTwoGMM.pdf']); % save the figure to a file
 
 
 i = 2; % data rho
@@ -85,7 +85,7 @@ legend([h1 h2], 'Chiou and Youngs (2014) GMM, NGA-West2 r', 'Chiou and Youngs (2
 xlabel('T (s)')
 ylabel('Spectral acceleration (g)')
 FormatFigure
-print('-dpdf', ['Figures/csTwoRho.pdf']); % save the figure to a file
+print('-dpdf', ['results/figures/csTwoRho.pdf']); % save the figure to a file
 
 % report numerical differences
 T1 = 10; % second period of interest (s)

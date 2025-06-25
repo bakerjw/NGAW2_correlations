@@ -5,8 +5,8 @@
 clear
 
 
-load allIMsResids % load empirical correlation data
-load rhoPredAll % load reference model correlations
+load('data/processed/allIMsResids') % load empirical correlation data
+load('data/processed/rhoPredAll') % load reference model correlations
 
 % screen records and compute correlations
 maxDistance = 100; % maximum distance to consider
@@ -35,14 +35,14 @@ fprintf('Eigenvalues for updated data and model: \n')
 fprintf('Max absolute changes in data and model matrices: \n')
 [max(max(abs(rhoData - rhoDataPD))) max(max(abs(rhoPredAll - rhoPredPD)))]
 
-save rhoDataAll rhoData rhoDataPD rhoPredAll rhoPredPD
+save('data/processed/rhoDataAll', 'rhoData', 'rhoDataPD', 'rhoPredAll', 'rhoPredPD')
 
 
 %% write CSV files of outputs
-csvwrite('eSupplement/rhoData.csv',rhoData)
-csvwrite('eSupplement/rhoDataPD.csv',rhoDataPD)
-csvwrite('eSupplement/rhoPredicted.csv',rhoPredAll)
-csvwrite('eSupplement/rhoPredictedPD.csv',rhoPredPD)
+csvwrite('results/supplement/rhoData.csv',rhoData)
+csvwrite('results/supplement/rhoDataPD.csv',rhoDataPD)
+csvwrite('results/supplement/rhoPredicted.csv',rhoPredAll)
+csvwrite('results/supplement/rhoPredictedPD.csv',rhoPredPD)
 
 
 

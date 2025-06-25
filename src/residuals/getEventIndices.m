@@ -3,7 +3,7 @@
 clear; close all; clc;
 
 load chiouYoungsUsed % indices of ground motions used in Chiou and Youngs (2014)
-load NGA_W2_corr_meta_data EQID NGA_num
+load('data/raw/NGA_W2_corr_meta_data', 'EQID', 'NGA_num')
 
 % initialize
 compositeUsed = zeros(21539,1);
